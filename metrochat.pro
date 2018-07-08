@@ -27,12 +27,12 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     NetConnection.cpp \
-    qthreadserver.cpp
+    qthreadchat.cpp
 
 HEADERS += \
         mainwindow.h \
     NetConnection.hpp \
-    qthreadserver.h
+    qthreadchat.h
 
 FORMS += \
         mainwindow.ui

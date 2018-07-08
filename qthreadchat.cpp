@@ -1,12 +1,13 @@
 
-#include "qthreadserver.h"
+#include "qthreadchat.h"
 
-QThreadServer::QThreadServer(){
+QThreadChat::QThreadChat(){
     num_clients = 0;
 }
 
-void QThreadServer::start_server(const char *char_ip, const char *char_port){
+void QThreadChat::start_server(const char *char_ip, const char *char_port){
 
+    char buffer[1024];
     NetConnection::ip_t ip = inet_addr(char_ip);     // This might be upgraded when the class NetConnection have a method to set the ip with a char chain
     NetConnection::port_t port = atoi(char_port);
     server.set_ip(ip);
@@ -14,47 +15,32 @@ void QThreadServer::start_server(const char *char_ip, const char *char_port){
 
     server.init_TCP_server(MAX_TCP_CLIENTS);
     emit(refresh_statuslabel("Server running, waiting for clients..."));
-    printf("Server running, waiting for clients...\n");
-    fflush(stdout);
-    nclient[num_clients] = server.accept_TCP_connection();    // then it blocks the GUI and does not allow the label to change.
+    nclient[num_clients] = server.accept_TCP_connection();
     num_clients++;
     emit(refresh_statuslabel("Client connected"));
-    printf("Client connected\n");
-    fflush(stdout);
-
-    char buffer[1024];
 
     while(1){
         nclient[num_clients-1]->read_packet(buffer, 1024);
-        printf("Recibido: %s\n", buffer);
-        fflush(stdout);
         QString msg = QString::fromUtf8(buffer);
         emit(msg_received(msg));
     }
 
 }
 
-void QThreadServer::start_client(const char *char_ip, const char *char_port){
+void QThreadChat::start_client(const char *char_ip, const char *char_port){
 
+    char buffer[1024];
     NetConnection::ip_t ip = inet_addr(char_ip);     // This might be upgraded when the class NetConnection have a method to set the ip with a char chain
     NetConnection::port_t port = atoi(char_port);
     client.set_ip(ip);
     client.set_port(port);
 
     emit(refresh_statuslabel("Establishing connection"));
-    printf("Establishing connection\n");
-    fflush(stdout);
     client.connect_TCP_client();
     emit(refresh_statuslabel("Connection established"));
-    printf("Connection established\n");
-    fflush(stdout);
-
-    char buffer[1024];
 
     while(1){
         client.read_packet(buffer, 1024);
-        printf("Recibido: %s\n", buffer);
-        fflush(stdout);
         QString msg = QString::fromUtf8(buffer);
         emit(msg_received(msg));
     }

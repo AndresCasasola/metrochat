@@ -3,8 +3,9 @@
 
 #include <QMainWindow>
 #include <QThread>
+#include <QPlainTextEdit>
 #include "NetConnection.hpp"
-#include "qthreadserver.h"
+#include "qthreadchat.h"
 
 // C Includes
 #include <stdio.h>
@@ -18,9 +19,11 @@
 // C++ Includes
 #include <iostream>
 
-#define MAX_CHAT_LINES 20
-#define APP_TYPE_SERVER 0
-#define APP_TYPE_CLIENT 1
+#define MAX_CHAT_LINES      20
+#define MAX_CHAT_CHARS      101
+#define APP_TYPE_SERVER     0
+#define APP_TYPE_CLIENT     1
+#define KEY_TO_SEND         Qt::Key_F1
 
 namespace Ui {
 class MainWindow;
@@ -33,7 +36,6 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    QThreadServer sthread;
 
 private slots:
     void on_pushButton_clicked();
@@ -43,6 +45,7 @@ private slots:
     void on_ConnectionButton_clicked();
     void refresh_statuslabel(QString string);
     void msg_received(QString);
+    void keyPressEvent(QKeyEvent *event);
 
 signals:
     void start_server(const char *ip, const char *port);
@@ -57,6 +60,8 @@ private:
     int msg_counter;                // That variable saves the current number of the output chat lines
     int app_type;                   // That variable saves if the application is working as server or client
     QThread thread;
+    QThreadChat chatThread;
+    //QString msg_owners[MAX_CHAT_LINES];
 
 };
 

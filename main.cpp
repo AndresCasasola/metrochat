@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "qthreadserver.h"
+#include "qthreadchat.h"
 // C/C++ Includes
 #include <stdio.h>
 #include <stdlib.h>

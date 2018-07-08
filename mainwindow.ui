@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Tab1">
      <attribute name="title">
@@ -93,7 +93,7 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>60</y>
+        <y>90</y>
         <width>121</width>
         <height>31</height>
        </rect>
@@ -106,7 +106,7 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>60</y>
+        <y>90</y>
         <width>21</width>
         <height>30</height>
        </rect>
@@ -119,7 +119,7 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>100</y>
+        <y>130</y>
         <width>121</width>
         <height>31</height>
        </rect>
@@ -132,7 +132,7 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>100</y>
+        <y>130</y>
         <width>31</width>
         <height>30</height>
        </rect>
@@ -145,7 +145,7 @@
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>240</y>
+        <y>270</y>
         <width>141</width>
         <height>28</height>
        </rect>
@@ -158,7 +158,7 @@
       <property name="geometry">
        <rect>
         <x>81</x>
-        <y>200</y>
+        <y>230</y>
         <width>121</width>
         <height>20</height>
        </rect>
@@ -174,7 +174,7 @@
       <property name="geometry">
        <rect>
         <x>65</x>
-        <y>150</y>
+        <y>180</y>
         <width>71</width>
         <height>28</height>
        </rect>
@@ -193,7 +193,7 @@
       <property name="geometry">
        <rect>
         <x>145</x>
-        <y>150</y>
+        <y>180</y>
         <width>71</width>
         <height>28</height>
        </rect>
@@ -218,11 +218,192 @@
        <string>Configuration</string>
       </property>
      </widget>
+     <widget class="QPlainTextEdit" name="UserInput">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>50</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="plainText">
+       <string>Andres</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="UserTittle">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>41</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>User</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="Tab2">
      <attribute name="title">
       <string>Send files</string>
      </attribute>
+     <widget class="QLabel" name="ConfigurationTittle_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>20</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Configuration</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="PortInput_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>130</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="plainText">
+       <string>25000</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="IPTittle_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>90</y>
+        <width>21</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>IP</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ServerClientLabel_2">
+      <property name="geometry">
+       <rect>
+        <x>81</x>
+        <y>230</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Working as server</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="UserInput_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>50</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="plainText">
+       <string>Andres</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="IPInput_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>90</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="plainText">
+       <string>127.0.0.1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ClientButton_2">
+      <property name="geometry">
+       <rect>
+        <x>145</x>
+        <y>180</y>
+        <width>71</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Client</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ConnectionButton_2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>270</y>
+        <width>141</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Establish connection</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ServerButton_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>65</x>
+        <y>180</y>
+        <width>71</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Server</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="UserTittle_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>41</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>User</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="PortTittle_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>130</y>
+        <width>31</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Port</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QPushButton" name="pushButton">
